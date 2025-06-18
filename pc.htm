@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignosaur Price Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #f5efb7;
+      --text: #0a2540;
+      --primary: #0a2540;
+      --accent: white;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fffef0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      margin-bottom: 30px; /* ⬅ Added margin between sections */
+    }
+
+    img.logo {
+      width: 100px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--primary);
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    select, input[type="number"], button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 2px solid var(--primary);
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: var(--bg);
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #091b30;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--primary);
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--primary);
+      color: var(--bg);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 15px;
+      }
+      table, th, td {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="logo.png" alt="Assignosaur Logo" class="logo">
+
+    <h1>Assignosaur Price Calculator</h1>
+
+    <label for="package">Choose Package:</label>
+    <select id="package">
+      <option value="" disabled selected>Select package option</option>
+      <option value="PDF Chill">PDF Chill (₹99)</option>
+      <option value="Inked Pro">Inked Pro (₹139)</option>
+      <option value="Dual Mode">Dual Mode (₹159)</option>
+    </select>
+
+    <label for="pages">Total Pages:</label>
+    <input type="number" id="pages" value="10" min="1">
+
+    <label for="delivery">Delivery Option:</label>
+    <select id="delivery">
+      <option value="" disabled selected>Select delivery option</option>
+      <option value="Standard">Standard (₹0)</option>
+      <option value="Priority">Priority (₹50)</option>
+      <option value="Express">Express (₹100)</option>
+    </select>
+
+    <button onclick="calculatePrice()">Calculate Price</button>
+    <div id="result"></div>
+  </div>
+
+  <div class="container">
+    <h2>📦 Package Pricing</h2>
+    <table>
+      <tr>
+        <th>Package</th>
+        <th>Description</th>
+        <th>Base (up to 10 pages)</th>
+        <th>Extra/Page</th>
+      </tr>
+      <tr>
+        <td>PDF Chill</td>
+        <td>Soft copy only</td>
+        <td>₹99</td>
+        <td>₹10</td>
+      </tr>
+      <tr>
+        <td>Inked Pro</td>
+        <td>Handwritten</td>
+        <td>₹139</td>
+        <td>₹15</td>
+      </tr>
+      <tr>
+        <td>Dual Mode</td>
+        <td>Handwritten + PDF</td>
+        <td>₹159</td>
+        <td>₹20</td>
+      </tr>
+    </table>
+
+    <h2>🚚 Delivery Options</h2>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Timeline</th>
+        <th>Charge</th>
+      </tr>
+      <tr>
+        <td>Standard</td>
+        <td>3–7 Days</td>
+        <td>₹0</td>
+      </tr>
+      <tr>
+        <td>Priority</td>
+        <td>2–3 Days</td>
+        <td>₹50</td>
+      </tr>
+      <tr>
+        <td>Express</td>
+        <td>Within 24 hrs</td>
+        <td>₹100</td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function calculatePrice() {
+      const pkg = document.getElementById("package").value;
+      const pages = parseInt(document.getElementById("pages").value);
+      const delivery = document.getElementById("delivery").value;
+
+      let basePrice = 0, extraRate = 0;
+
+      if (pkg === "PDF Chill") {
+        basePrice = 99; extraRate = 10;
+      } else if (pkg === "Inked Pro") {
+        basePrice = 139; extraRate = 15;
+      } else if (pkg === "Dual Mode") {
+        basePrice = 159; extraRate = 20;
+      }
+
+      let extraPages = pages > 10 ? pages - 10 : 0;
+      let deliveryCharge = delivery === "Priority" ? 50 : delivery === "Express" ? 100 : 0;
+
+      let total = basePrice + (extraPages * extraRate) + deliveryCharge;
+
+      document.getElementById("result").innerText = `Total Price: ₹${total}`;
+    }
+  </script>
+
+</body>
+</html>
