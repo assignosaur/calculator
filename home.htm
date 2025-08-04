@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignosaur - Dino-mite Assignments, Every Time!</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #1c1c1c; background-color: #fdf9e3; }
+        header { background-color: #002147; color: #fff; padding: 30px 20px; text-align: center; }
+        header img { max-width: 120px; display: block; margin: 0 auto 15px; }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { font-size: 1.3rem; }
+        .cta-button { background-color: #002147; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 1.2rem; font-weight: bold; display: inline-block; margin: 10px; }
+        .section { padding: 40px 20px; display: flex; justify-content: center; }
+        .card { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px; max-width: 900px; width: 100%; margin-bottom: 30px; text-align: center; }
+        h2 { color: #002147; margin-bottom: 20px; }
+        .table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .table th, .table td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        .table th { background-color: #002147; color: #fff; }
+        button { background-color: #002147; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-top: 10px; }
+        input, select { padding: 10px; width: 100%; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        footer { background-color: #002147; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+        footer a { color: #ffb400; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Assignosaur Logo">
+        <h1>Assignosaur</h1>
+        <p>Dino-mite Assignments, Every Time!</p>
+        <a href="https://forms.gle/TxjjvgoyboJRteXk7" class="cta-button">Order Now</a>
+        <a href="#price-calculator" class="cta-button">Check Price</a>
+    </header>
+
+    <section class="section">
+        <div class="card">
+            <h2>Package Pricing</h2>
+            <table class="table">
+                <tr>
+                    <th>Package</th>
+                    <th>Description</th>
+                    <th>Base (up to 10 pages)</th>
+                    <th>Extra/Page</th>
+                </tr>
+                <tr>
+                    <td>PDF Chill</td>
+                    <td>Soft copy only</td>
+                    <td>₹99</td>
+                    <td>₹10</td>
+                </tr>
+                <tr>
+                    <td>Inked Pro</td>
+                    <td>Handwritten</td>
+                    <td>₹139</td>
+                    <td>₹15</td>
+                </tr>
+                <tr>
+                    <td>Dual Mode</td>
+                    <td>Handwritten + PDF</td>
+                    <td>₹159</td>
+                    <td>₹20</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>Delivery Options</h2>
+            <table class="table">
+                <tr>
+                    <th>Type</th>
+                    <th>Timeline</th>
+                    <th>Charge</th>
+                </tr>
+                <tr>
+                    <td>Standard</td>
+                    <td>3–7 days</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td>Priority</td>
+                    <td>2–3 days</td>
+                    <td>₹50</td>
+                </tr>
+                <tr>
+                    <td>Express</td>
+                    <td>24 hours</td>
+                    <td>₹100</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>How to Order?</h2>
+            <ol style="text-align:left;">
+                <li>Fill out our <a href="https://forms.gle/TxjjvgoyboJRteXk7">Order Form</a>.</li>
+                <li>Select your package + delivery option.</li>
+                <li>Pay via UPI and send a screenshot to our WhatsApp number.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>Payment Info</h2>
+            <p>UPI ID: <strong>7307748798@kotak811</strong></p>
+            <p>Full payment required to confirm order.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>Our Dino Rules</h2>
+            <ul style="text-align:left;">
+                <li>No refunds once work has started.</li>
+                <li>Handwritten deliveries only near/inside college campuses.</li>
+                <li>Express slots are subject to availability.</li>
+                <li>Content is original but should be personalized before final submission.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>Contact Us</h2>
+            <p>Instagram: <a href="https://instagram.com/assignosaurrrr">@assignosaurrrr</a></p>
+            <p>WhatsApp us directly for support.</p>
+        </div>
+    </section>
+
+    <section class="section" id="price-calculator">
+        <div class="card">
+            <h2>Price Calculator</h2>
+            <label for="package">Choose Package:</label>
+            <select id="package">
+                <option value="">Select package option</option>
+                <option value="pdf">PDF Chill – ₹99</option>
+                <option value="inked">Inked Pro – ₹139</option>
+                <option value="dual">Dual Mode – ₹159</option>
+            </select>
+            <label for="pages">Total Pages:</label>
+            <input type="number" id="pages" value="10" min="1">
+            <label for="delivery">Delivery Option:</label>
+            <select id="delivery">
+                <option value="">Select delivery option</option>
+                <option value="standard">Standard (Free)</option>
+                <option value="priority">Priority (₹50)</option>
+                <option value="express">Express (₹100)</option>
+            </select>
+            <button onclick="calculatePrice()">Calculate Price</button>
+            <p id="result"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Thank you for choosing Assignosaur. RAWR on, student warrior!</p>
+    </footer>
+
+    <script>
+        function calculatePrice() {
+            const packageType = document.getElementById('package').value;
+            const pages = parseInt(document.getElementById('pages').value);
+            const delivery = document.getElementById('delivery').value;
+
+            let base = 0, extra = 0;
+            if (packageType === 'pdf') { base = 99; extra = 10; }
+            else if (packageType === 'inked') { base = 139; extra = 15; }
+            else if (packageType === 'dual') { base = 159; extra = 20; }
+
+            let deliveryCharge = 0;
+            if (delivery === 'priority') deliveryCharge = 50;
+            else if (delivery === 'express') deliveryCharge = 100;
+
+            let total = base;
+            if (pages > 10) total += (pages - 10) * extra;
+            total += deliveryCharge;
+
+            document.getElementById('result').textContent = `Total Price: ₹${total}`;
+        }
+    </script>
+</body>
+</html>
